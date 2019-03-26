@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Chainingtest</title>
+
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid rgb(50, 50, 50);
+			border-radius: 50%;
+			float: left;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+
+<!---henter inn jquery-->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+$(function(){
+	$("div").on("mouseenter", function(){
+		//kontekst
+		$(this)
+			.css("background-color", "white")
+			.prevAll()
+			.add($(this).nextAll())
+			.css("background-color", tilfeldigFarge());
+	});
+
+	function tilfeldigFarge(){
+		var r = Math.floor(Math.random() * 256);
+		var g = Math.floor(Math.random() * 256);
+		var b = Math.floor(Math.random() * 256);
+
+		return "rgb(" + r + ", " + g + ", " + b + ")";
+	}
+});
+</script>
+
+</body>
+</html>
